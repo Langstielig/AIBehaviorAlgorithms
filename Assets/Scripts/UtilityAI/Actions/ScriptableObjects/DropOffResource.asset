@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DropOffResource
   m_EditorClassIdentifier: 
   Name: Drop off resouce
+  cost: 0.3
   considerations:
   - {fileID: 11400000, guid: be05adf23b21f3441846f156a3fd2969, type: 2}

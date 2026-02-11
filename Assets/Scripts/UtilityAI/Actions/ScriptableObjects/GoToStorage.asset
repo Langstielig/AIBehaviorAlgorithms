@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GoToStorage
   m_EditorClassIdentifier: 
   Name: Go to storage
+  cost: 0.1
   considerations: []

@@ -5,6 +5,7 @@ public class DropOffResource : Action
 {
     public override void Execute(NPCController npc)
     {
+        //MyLogger.LogStats(npc, this);
         Debug.Log("Drop off resource");
         npc.Inventory.RemoveAllResource();
         npc.stats.money += 20;

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: InventoryConsideration
   m_EditorClassIdentifier: 
   Name: Inventory
+  needType: 3
   responseCurve:
     serializedVersion: 2
     m_Curve:

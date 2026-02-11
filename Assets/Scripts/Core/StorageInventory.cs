@@ -20,6 +20,11 @@ public abstract class StorageInventory : MonoBehaviour
 
     public virtual void RemoveResource(ResourceType resourceType, int amount) { }
 
+    public virtual int CheckWoodCount()
+    {
+        return Inventory[ResourceType.wood];
+    }
+
     public virtual int CheckInventoryCount()
     {
         int sum = 0;

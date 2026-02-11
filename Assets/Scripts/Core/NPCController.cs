@@ -17,6 +17,7 @@ public class NPCController : MonoBehaviour
     public Stats stats { get; set; }
     public Context context;
     public bool isUtilityAI;
+    public bool withPersonality;
 
     [Header ("Stats")]
     public float minDistance = 2f;
@@ -25,6 +26,7 @@ public class NPCController : MonoBehaviour
 
     [Header("Utility AI")]
     public AIBrain aiBrain { get; set; }
+    public Personality personality;
     public State currentState;
 
     [Header("Behavior Tree")]
@@ -37,6 +39,8 @@ public class NPCController : MonoBehaviour
         moveController = GetComponent<MoveController>();
         Inventory = GetComponent<NPCInventory>();
         stats = GetComponent<Stats>();
+
+        Debug.Log($"Время: {Time.time:F2}");
 
         //UtilityAI
         if (isUtilityAI)

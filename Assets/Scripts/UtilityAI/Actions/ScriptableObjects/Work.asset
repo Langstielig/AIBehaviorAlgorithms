@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Work
   m_EditorClassIdentifier: 
   Name: Work
+  cost: 0.4
   considerations:
   - {fileID: 11400000, guid: 765fa721eaeb34243ababbf247677070, type: 2}

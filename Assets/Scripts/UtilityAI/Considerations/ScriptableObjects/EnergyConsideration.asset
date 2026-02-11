@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EnergyConsideration
   m_EditorClassIdentifier: 
   Name: Energy for sleep
+  needType: 1
   responseCurve:
     serializedVersion: 2
     m_Curve:

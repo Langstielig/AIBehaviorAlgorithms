@@ -5,6 +5,7 @@ public class Eat : Action
 {
     public override void Execute(NPCController npc)
     {
+        //MyLogger.LogStats(npc, this);
         Debug.Log("I ate food!");
 
         //we can manipulating with eating right here because we dont need coroutines

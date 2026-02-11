@@ -486,6 +486,11 @@ MonoBehaviour:
   resourceType: 2
   initialAmount: 100
   amountAvailable: 0
+--- !u!4 &358437353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7533795812152726194, guid: 7bf8953ae397ffd409a19928405575cb, type: 3}
+  m_PrefabInstance: {fileID: 358437349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,6 +2412,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1905e9802eab45645a7412a164c3123f, type: 2}
   - {fileID: 11400000, guid: 0e2860e71e6bfe247986ae9623861f0f, type: 2}
   billboard: {fileID: 1264356078}
+  withActionCost: 1
+  withStochasticSelection: 1
 --- !u!114 &1868106998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2419,7 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65fadd3b31a598479e7682b1bf0545b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 0}
+  destination: {fileID: 358437353}
 --- !u!114 &1868106999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2434,9 +2441,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 1759654531}
   isUtilityAI: 1
+  withPersonality: 1
   minDistance: 2
   sleepTime: 3
   workTime: 3
+  personality: {fileID: 11400000, guid: c363d97beb837814ba9ac455503162a4, type: 2}
   currentState: 0
   isFinishedActing: 0
 --- !u!114 &1868107002
@@ -2503,13 +2512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   billboard: {fileID: 1264356078}
-  workAction: {fileID: 11400000, guid: 1905e9802eab45645a7412a164c3123f, type: 2}
-  goToWorkAction: {fileID: 11400000, guid: da171010c9145ab4082dd1cea2c0c589, type: 2}
-  goToHomeAction: {fileID: 11400000, guid: e16a44a6536b09f45a24604c6f664a25, type: 2}
-  sleepAction: {fileID: 11400000, guid: 532af494bf2f8444b9fbba8cc3d7cc86, type: 2}
   eatAction: {fileID: 11400000, guid: 798d33abd7e46184ebab227a39671e4a, type: 2}
-  goToStorageAction: {fileID: 11400000, guid: ce0142a466dccc04c80a9f8be7340c6c, type: 2}
-  dropOffResourceAction: {fileID: 11400000, guid: 0e2860e71e6bfe247986ae9623861f0f, type: 2}
 --- !u!1 &2136434346
 GameObject:
   m_ObjectHideFlags: 0

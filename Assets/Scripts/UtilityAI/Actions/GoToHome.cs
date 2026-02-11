@@ -5,6 +5,7 @@ public class GoToHome : Action
 {
     public override void Execute(NPCController npc)
     {
+        //MyLogger.LogStats(npc, this);
         Debug.Log("I'm going home");
 
         Vector3 position = npc.FindHomePosition();

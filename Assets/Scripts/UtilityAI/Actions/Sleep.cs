@@ -5,6 +5,7 @@ public class Sleep : Action
 {
     public override void Execute(NPCController npc)
     {
+        //MyLogger.LogStats(npc, this);
         Debug.Log("I'm sleeping");
 
         npc.DoSleep();

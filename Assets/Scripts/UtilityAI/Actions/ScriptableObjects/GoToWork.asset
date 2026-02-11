@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GoToWork
   m_EditorClassIdentifier: 
   Name: Go to work
+  cost: 0.1
   considerations: []

@@ -6,6 +6,7 @@ public class Work : Action
 {
     public override void Execute(NPCController npc)
     {
+        //MyLogger.LogStats(npc, this);
         Debug.Log("I'm working");
 
         npc.DoWork();

@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5ed5f1fa966abc40a5a3504b2bba181, type: 3}
-  m_Name: Eat
+  m_Script: {fileID: 11500000, guid: 60de5fd03f007a8448524195b510328a, type: 3}
+  m_Name: Glutton
   m_EditorClassIdentifier: 
-  Name: Eat
-  cost: 0.2
-  considerations:
-  - {fileID: 11400000, guid: b5e204ab78577414b8b5a0469d6fcd5f, type: 2}
+  Name: Glutton
+  hungerMultiplier: 1.4
+  sleepMultiplier: 1.1
+  moneyMotivation: 1
+  inventoryMotivation: 1

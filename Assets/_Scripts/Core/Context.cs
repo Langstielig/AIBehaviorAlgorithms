@@ -25,13 +25,16 @@ public class Context : MonoBehaviour
             {DestinationType.resource, new List <Transform>()},
             {DestinationType.food, new List<Transform>()},
         };
-    }
 
-    private void Start()
-    {
         RegisterDestination(DestinationType.rest, home.transform);
         RegisterDestination(DestinationType.storage, storage.transform);
     }
+
+    //private void Start()
+    //{
+    //    RegisterDestination(DestinationType.rest, home.transform);
+    //    RegisterDestination(DestinationType.storage, storage.transform);
+    //}
 
     public void RegisterDestination(DestinationType destinationType, Transform target)
     {

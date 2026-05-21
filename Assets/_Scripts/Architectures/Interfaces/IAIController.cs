@@ -1,7 +1,9 @@
 public enum AIType
 {
     UtilityAI,
-    BehaviorTree
+    BehaviorTree,
+    Hybrid,
+    FSM
 }
 
 public interface IAIController 

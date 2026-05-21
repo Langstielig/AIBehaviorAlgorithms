@@ -1,10 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum State
 {
     decide,
-    //move,
+    move,
     execute
 }
 
@@ -52,17 +53,6 @@ public class NPCController : MonoBehaviour
         //Debug.Log($"Время: {Time.time:F2}");
 
         InitializeAIController();
-
-        ////UtilityAI
-        //if (isUtilityAI)
-        //{
-        //    aiBrain = GetComponent<AIBrain>();
-        //}
-        ////Behavior Tree
-        //else
-        //{
-        //    behaviorTree = GetComponent<BehaviorTree>();
-        //}
     }
 
     void Update()
@@ -75,11 +65,6 @@ public class NPCController : MonoBehaviour
 
         //stats.UpdateEnergy(AmIAtRestDestination());
         //stats.UpdateHunger();
-
-        //if (isUtilityAI)
-        //{
-        //    FSMTick();
-        //} 
 
         aiController.Tick();
     }
@@ -96,6 +81,13 @@ public class NPCController : MonoBehaviour
                 aiController = new BehaviorTreeAIController();
                 behaviorTree = GetComponent<BehaviorTree>();
                 break;
+            case AIType.Hybrid:
+                aiController = new HybridAIController();
+                aiBrain = GetComponent<AIBrain>();
+                break;
+            case AIType.FSM:
+                aiController = new FSMAIController();
+                break;
             default:
                 break;
         }
@@ -103,45 +95,49 @@ public class NPCController : MonoBehaviour
         aiController.Initialize(this);
     }
 
-    public void FSMTick()
+    public void UtilityAITick()
+    {
+        if (currentState == State.decide)
+        {
+            aiBrain.DecideBestAction();
+
+            if (Vector3.Distance(aiBrain.bestAction.RequiredDestination.position, transform.position) < 2f)
+            {
+                currentState = State.execute;
+            }
+            else
+            {
+                currentState = State.move;
+            }
+        }
+        else if (currentState == State.move)
+        {
+            if (Vector3.Distance(aiBrain.bestAction.RequiredDestination.position, transform.position) < 2f)
+            {
+                currentState = State.execute;
+            }
+            else
+            {
+                moveController.MoveTo(aiBrain.bestAction.RequiredDestination.position);
+                //moveController.MoveTo(currentTarget.position);
+            }
+        }
+        else if (currentState == State.execute)
+        {
+            if (aiBrain.finishedExecutingBestAction == false)
+            {
+                aiBrain.bestAction.Execute(this);
+            }
+            else
+            {
+                currentState = State.decide;
+            }
+        }
+    }
+
+    public void HybridTick()
     {
         Debug.Log("Current state is " + currentState.ToString());
-        //if(currentState == State.decide)
-        //{
-        //    aiBrain.DecideBestAction();
-
-        //    if(Vector3.Distance(aiBrain.bestAction.RequiredDestination.position, transform.position) < 2f)
-        //    {
-        //        currentState = State.execute;
-        //    }
-        //    else
-        //    {
-        //        currentState = State.move;
-        //    }
-        //}
-        //else if(currentState == State.move)
-        //{
-        //    if(Vector3.Distance(aiBrain.bestAction.RequiredDestination.position, transform.position) < 2f)
-        //    {
-        //        currentState = State.execute;
-        //    }
-        //    else
-        //    {
-        //        moveController.MoveTo(aiBrain.bestAction.RequiredDestination.position);
-        //        //moveController.MoveTo(currentTarget.position);
-        //    }
-        //}
-        //else if(currentState == State.execute)
-        //{
-        //    if(aiBrain.finishedExecutingBestAction == false)
-        //    {
-        //        aiBrain.bestAction.Execute(this);
-        //    }
-        //    else
-        //    {
-        //        currentState = State.decide;
-        //    }
-        //}
 
         if(currentState == State.decide)
         {
@@ -152,8 +148,6 @@ public class NPCController : MonoBehaviour
         {
             if(currentHFSMAction == null)
             {
-                //currentHFSMAction = new EatHFSMAction();
-                //currentHFSMAction = new SleepHFSMAction();
                 currentHFSMAction = aiBrain.bestAction.CreateHFSMAction();
                 currentHFSMAction.Enter(this);
             }
@@ -178,10 +172,10 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    //public bool AmIAtRestDestination()
-    //{
-    //    return Vector3.Distance(transform.position, context.home.transform.position) <= context.MinDistance;
-    //}
+    public bool AmIAtRestDestination()
+    {
+        return Vector3.Distance(transform.position, context.home.transform.position) <= context.MinDistance;
+    }
 
     //public void onFinishedAction()
     //{
@@ -195,7 +189,7 @@ public class NPCController : MonoBehaviour
         //Transform workTransform = context.FindNearestPosition(DestinationType.resource, transform.position);
         //return workTransform.position;
 
-        //currentTarget = context.FindNearestPosition(DestinationType.resource, transform.position);
+        currentTarget = context.FindNearestPosition(DestinationType.resource, transform.position);
 
         //float minDistance = Mathf.Infinity;
         //Transform nearestResource = null;
@@ -219,7 +213,7 @@ public class NPCController : MonoBehaviour
     {
         //Transform foodTransform = context.FindNearestPosition(DestinationType.food, transform.position);
         //return foodTransform.position;
-        //currentTarget = context.FindNearestPosition(DestinationType.food, transform.position);
+        currentTarget = context.FindNearestPosition(DestinationType.food, transform.position);
     }
 
     public void FindHomePosition()
@@ -227,7 +221,7 @@ public class NPCController : MonoBehaviour
         //Transform home = context.home.transform;
         //return home.position;
 
-        //currentTarget = context.FindNearestPosition(DestinationType.rest, transform.position);
+        currentTarget = context.FindNearestPosition(DestinationType.rest, transform.position);
     }
 
     public void FindStoragePosition()
@@ -235,7 +229,7 @@ public class NPCController : MonoBehaviour
         //Transform storage = context.storage.transform;
         //return storage.position;
 
-        //currentTarget = context.FindNearestPosition(DestinationType.storage, transform.position);
+        currentTarget = context.FindNearestPosition(DestinationType.storage, transform.position);
     }
 
     #endregion

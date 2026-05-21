@@ -34,16 +34,17 @@ public class Resource : DestinationPoint
     public delegate void ResourceExhausted();
     public event ResourceExhausted OnResourceExhausted;
 
-    private void Awake()
+    protected override void Awake()
     {
         destinationType = DestinationType.resource;
+        base.Awake();
     }
 
-    protected override void Start()
+    private void Start()
     {
         AmountAvailable = InitialAmount;
 
-        base.Start();
+        //base.Start();
         //Context context = FindAnyObjectByType<Context>();
         //context.RegisterDestination(DestinationType.resource, transform);
     }

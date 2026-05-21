@@ -1,7 +1,8 @@
 public class Food : DestinationPoint
 {
-    private void Awake()
+    protected override void Awake()
     {
         destinationType = DestinationType.food;
+        base.Awake();
     }
 }

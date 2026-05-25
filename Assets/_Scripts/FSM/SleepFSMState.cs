@@ -2,6 +2,8 @@ public class SleepFSMState : FSMState
 {
     private bool startedSleeping;
 
+    public override string StateName => "Sleep";
+
     public SleepFSMState(FSMAIController fsm, NPCController npcController)
     {
         this.fsm = fsm;

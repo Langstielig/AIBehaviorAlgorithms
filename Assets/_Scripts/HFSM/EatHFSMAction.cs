@@ -13,9 +13,13 @@ public class EatHFSMAction : HFSMAction
     private Transform foodTarget;
     private bool finished;
 
+    public override string StateName => "Eat";
+
     public override void Enter(NPCController npcController)
     {
         Debug.Log("HFSM Enter Eat");
+
+        npcController.billboard.UpdateBestAction(StateName);
 
         finished = false;
         currentState = EatState.FindFood;

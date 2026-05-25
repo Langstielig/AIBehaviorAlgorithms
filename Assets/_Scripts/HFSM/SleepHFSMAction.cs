@@ -13,9 +13,14 @@ public class SleepHFSMAction : HFSMAction
     private Transform home;
     private bool finished;
 
+    public override string StateName => "Sleep";
+
     public override void Enter(NPCController npcController)
     {
         Debug.Log("HFSM Enter Sleep");
+
+        npcController.billboard.UpdateBestAction(StateName);
+
         finished = false;
         currentState = SleepState.FindHome;
     }

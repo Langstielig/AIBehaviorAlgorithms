@@ -2,6 +2,8 @@ public class DropOffResourceFSMState : FSMState
 {
     private bool startedDropOffRecource;
 
+    public override string StateName => "Drop off resources";
+
     public DropOffResourceFSMState(FSMAIController fsm, NPCController npcController)
     {
         this.fsm = fsm;

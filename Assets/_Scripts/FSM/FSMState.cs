@@ -6,6 +6,8 @@ public abstract class FSMState
     protected NPCController npcController;
     protected Transform target;
 
+    public abstract string StateName { get; }
+
     protected bool IsAtTarget()
     {
         if (target == null)

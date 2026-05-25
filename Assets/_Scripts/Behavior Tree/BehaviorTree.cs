@@ -7,10 +7,6 @@ public class BehaviorTree: MonoBehaviour
 
     [SerializeField] private Billboard billboard;
 
-    //[SerializeField] private Action workAction;
-    //[SerializeField] private Action goToWorkAction;
-    //[SerializeField] private Action goToHomeAction;
-    //[SerializeField] private Action sleepAction;
     [SerializeField] private Action eatAction;
     //[SerializeField] private Action goToStorageAction;
     //[SerializeField] private Action dropOffResourceAction;

@@ -13,9 +13,13 @@ public class WorkHFSMAction : HFSMAction
     private Transform tree;
     private bool finished;
 
+    public override string StateName => "Work";
+
     public override void Enter(NPCController npcController)
     {
         Debug.Log("HFSM Enter Work");
+
+        npcController.billboard.UpdateBestAction(StateName);
 
         finished = false;
         currentState = WorkState.FindTree;

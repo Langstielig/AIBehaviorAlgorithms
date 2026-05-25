@@ -13,9 +13,13 @@ public class DropOffResourceHFSMAction : HFSMAction
     private Transform storage;
     private bool finished;
 
+    public override string StateName => "Drop off resources";
+
     public override void Enter(NPCController npcController)
     {
         Debug.Log("HFSM Enter DropOffResource");
+
+        npcController.billboard.UpdateBestAction(StateName);
 
         finished = false;
         currentState = DropOffResourceState.FindStorage;

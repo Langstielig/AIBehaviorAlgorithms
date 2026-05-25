@@ -16,6 +16,7 @@ public class NPCController : MonoBehaviour
     public NPCInventory Inventory { get; set; }
     public Stats stats { get; set; }
     public Context context;
+    public Billboard billboard;
     //public bool isUtilityAI;
 
     [Header ("Stats")]
@@ -87,6 +88,12 @@ public class NPCController : MonoBehaviour
                 break;
             case AIType.FSM:
                 aiController = new FSMAIController();
+                break;
+            case AIType.DecisionTree:
+                aiController = new DecisionTreeAIController();
+                break;
+            case AIType.HFSM:
+                aiController = new HFSMAIController();
                 break;
             default:
                 break;
@@ -253,6 +260,7 @@ public class NPCController : MonoBehaviour
     IEnumerator WorkCoroutine(int time)
     {
         int counter = time;
+
         while(counter > 0)
         {
             yield return new WaitForSeconds(1);
@@ -267,16 +275,17 @@ public class NPCController : MonoBehaviour
 
         //Decide our new best action after you finished this one
         //onFinishedAction();
-        if (aiType == AIType.UtilityAI)
-        {
-            FinishExecutingBestAction();
-        }
-        else
-        {
-            isFinishedActing = true;
-        }
+        //if (aiType == AIType.UtilityAI)
+        //{
+        //    FinishExecutingBestAction();
+        //}
+        //else
+        //{
+        //    isFinishedActing = true;
+        //}
 
-        isActing = false;
+        //isActing = false;
+        FinishAction();
     }
 
     public void DoSleep()
@@ -297,6 +306,7 @@ public class NPCController : MonoBehaviour
     IEnumerator SleepCoroutine(int time)
     {
         int counter = time;
+
         while (counter > 0)
         {
             yield return new WaitForSeconds(1);
@@ -308,16 +318,17 @@ public class NPCController : MonoBehaviour
         //Logic to update energy
         stats.energy += 20;
 
-        if (aiType == AIType.UtilityAI)
-        {
-            FinishExecutingBestAction();
-        }
-        else
-        {
-            isFinishedActing = true;
-        }
+        //if (aiType == AIType.UtilityAI)
+        //{
+        //    FinishExecutingBestAction();
+        //}
+        //else
+        //{
+        //    isFinishedActing = true;
+        //}
 
-        isActing = false;
+        //isActing = false;
+        FinishAction();
     }
 
     public void DoDropOffResources()
@@ -338,6 +349,7 @@ public class NPCController : MonoBehaviour
     IEnumerator DropOffResourcesCoroutine(int time)
     {
         int counter = time;
+
         while (counter > 0)
         {
             yield return new WaitForSeconds(1);
@@ -351,16 +363,17 @@ public class NPCController : MonoBehaviour
         Inventory.RemoveAllResource();
         stats.money += 20;
 
-        if (aiType == AIType.UtilityAI)
-        {
-            FinishExecutingBestAction();
-        }
-        else
-        {
-            isFinishedActing = true;
-        }
+        //if (aiType == AIType.UtilityAI)
+        //{
+        //    FinishExecutingBestAction();
+        //}
+        //else
+        //{
+        //    isFinishedActing = true;
+        //}
 
-        isActing = false;
+        //isActing = false;
+        FinishAction();
     }
 
     public void DoEat()
@@ -380,6 +393,7 @@ public class NPCController : MonoBehaviour
     IEnumerator EatCoroutine(int time)
     {
         int counter = time;
+
         while (counter > 0)
         {
             yield return new WaitForSeconds(1);
@@ -396,6 +410,23 @@ public class NPCController : MonoBehaviour
         stats.hunger -= 30;
         stats.money -= 10;
 
+        //if (aiType == AIType.UtilityAI)
+        //{
+        //    FinishExecutingBestAction();
+        //}
+        //else
+        //{
+        //    isFinishedActing = true;
+        //}
+
+        //isActing = false;
+        FinishAction();
+    }
+
+    private void FinishAction()
+    {
+        currentTarget = null;
+
         if (aiType == AIType.UtilityAI)
         {
             FinishExecutingBestAction();
@@ -407,6 +438,5 @@ public class NPCController : MonoBehaviour
 
         isActing = false;
     }
-
     #endregion
 }

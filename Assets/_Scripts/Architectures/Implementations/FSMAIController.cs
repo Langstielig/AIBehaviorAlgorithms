@@ -35,6 +35,9 @@ public class FSMAIController : IAIController
             currentState.Exit();
         }
         currentState = newState;
+
+        npcController.billboard.UpdateBestAction(currentState.StateName);
+
         currentState.Enter();
     }
 

@@ -4,6 +4,8 @@ public class EatFSMState : FSMState
 {
     private bool startedEating;
 
+    public override string StateName => "Eat";
+
     public EatFSMState(FSMAIController fsm, NPCController npcController)
     {
         this.fsm = fsm;

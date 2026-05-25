@@ -4,6 +4,8 @@ public class WorkFSMState : FSMState
 {
     private bool startedWorking;
 
+    public override string StateName => "Work";
+
     public WorkFSMState(FSMAIController fsm, NPCController npcController)
     {
         this.fsm = fsm;

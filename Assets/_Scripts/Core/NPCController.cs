@@ -155,7 +155,7 @@ public class NPCController : MonoBehaviour
         {
             if(currentHFSMAction == null)
             {
-                currentHFSMAction = aiBrain.bestAction.CreateHFSMAction();
+                //currentHFSMAction = aiBrain.bestAction.CreateHFSMAction();
                 currentHFSMAction.Enter(this);
             }
 
@@ -263,7 +263,7 @@ public class NPCController : MonoBehaviour
 
         while(counter > 0)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.2f);
             counter--;
         }
 

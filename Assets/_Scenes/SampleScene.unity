@@ -198,6 +198,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272238242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5660469763809850987, guid: ecccd3a4f48677e4e856c6207e50da12, type: 3}
+  m_PrefabInstance: {fileID: 4337149892690615186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6ce211ff33f144b85b5a1516f6c386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,6 +2042,17 @@ MonoBehaviour:
   resourceType: 2
   initialAmount: 100
   amountAvailable: 0
+--- !u!114 &1524958586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5660469763809850987, guid: ecccd3a4f48677e4e856c6207e50da12, type: 3}
+  m_PrefabInstance: {fileID: 344975468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6ce211ff33f144b85b5a1516f6c386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1759654531 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
@@ -2344,7 +2366,7 @@ PrefabInstance:
       objectReference: {fileID: 358437353}
     - target: {fileID: 641975100198761363, guid: 47568d0558d86e24fb9b014cbb786897, type: 3}
       propertyPath: aiType
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 641975100198761363, guid: 47568d0558d86e24fb9b014cbb786897, type: 3}
       propertyPath: context
@@ -2354,6 +2376,14 @@ PrefabInstance:
       propertyPath: billboard
       value: 
       objectReference: {fileID: 1264356078}
+    - target: {fileID: 641975100198761363, guid: 47568d0558d86e24fb9b014cbb786897, type: 3}
+      propertyPath: personality
+      value: 
+      objectReference: {fileID: 11400000, guid: c363d97beb837814ba9ac455503162a4, type: 2}
+    - target: {fileID: 641975100198761363, guid: 47568d0558d86e24fb9b014cbb786897, type: 3}
+      propertyPath: withPersonality
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2136396616327734198, guid: 47568d0558d86e24fb9b014cbb786897, type: 3}
       propertyPath: billboard
       value: 
@@ -2443,6 +2473,46 @@ PrefabInstance:
       propertyPath: storage
       value: 
       objectReference: {fileID: 1151942829}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: foods.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: 'foods.Array.data[0]'
+      value: 
+      objectReference: {fileID: 272238242}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: 'foods.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1524958586}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: resources.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: 'resources.Array.data[0]'
+      value: 
+      objectReference: {fileID: 358437352}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: 'resources.Array.data[1]'
+      value: 
+      objectReference: {fileID: 997587885}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: 'resources.Array.data[2]'
+      value: 
+      objectReference: {fileID: 845934164}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: 'resources.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1360655639}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: 'resources.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1793912772}
+    - target: {fileID: 5080737734071083891, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
+      propertyPath: 'resources.Array.data[5]'
+      value: 
+      objectReference: {fileID: 422708389}
     - target: {fileID: 7740140342001455374, guid: 965b424da87e7344c9c4e6598cd7882b, type: 3}
       propertyPath: m_Name
       value: Context

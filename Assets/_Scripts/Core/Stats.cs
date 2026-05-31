@@ -68,14 +68,14 @@ public class Stats : MonoBehaviour
         //money = 150;
 
         //Test case: average NPC stats
-        hunger = 49;
-        energy = 51;
-        money = 10;
+        //hunger = 49;
+        //energy = 51;
+        //money = 100;
 
         //My case
-        //hunger = 74;
-        //energy = 96;
-        //money = 730;
+        hunger = 59;
+        energy = 41;
+        money = 300;
     }
 
     private void Update()

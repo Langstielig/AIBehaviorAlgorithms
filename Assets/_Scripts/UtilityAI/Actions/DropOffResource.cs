@@ -3,10 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DropOffResource", menuName = "UtilityAI/Actions/DropOffResource")]
 public class DropOffResource : Action
 {
-    public override HFSMAction CreateHFSMAction()
-    {
-        return new DropOffResourceHFSMAction();
-    }
+    //public override HFSMAction CreateHFSMAction()
+    //{
+    //    return new DropOffResourceHFSMAction();
+    //}
 
     public override void Execute(NPCController npc)
     {

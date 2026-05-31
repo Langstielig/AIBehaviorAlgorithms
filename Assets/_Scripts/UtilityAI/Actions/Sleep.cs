@@ -3,10 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Sleep", menuName = "UtilityAI/Actions/Sleep")]
 public class Sleep : Action
 {
-    public override HFSMAction CreateHFSMAction()
-    {
-        return new SleepHFSMAction();
-    }
+    //public override HFSMAction CreateHFSMAction()
+    //{
+    //    return new SleepHFSMAction();
+    //}
 
     public override void Execute(NPCController npc)
     {

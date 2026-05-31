@@ -6,7 +6,7 @@ public class DestinationPoint : MonoBehaviour
 
     protected virtual void Awake()
     {
-        Context context = FindAnyObjectByType<Context>();
-        context.RegisterDestination(destinationType, transform);
+        //Context context = FindAnyObjectByType<Context>();
+        //context.RegisterDestination(destinationType, transform);
     }
 }

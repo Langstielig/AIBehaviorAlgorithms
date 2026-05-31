@@ -29,7 +29,7 @@ public abstract class Action : ScriptableObject
 
     public abstract void SetRequiredDestination(NPCController npc);
 
-    public abstract HFSMAction CreateHFSMAction();
+    //public abstract HFSMAction CreateHFSMAction();
 
     public virtual float CalculateDynamicCost(NPCController npc)
     {

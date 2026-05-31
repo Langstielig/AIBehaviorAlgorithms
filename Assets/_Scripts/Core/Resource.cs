@@ -37,7 +37,7 @@ public class Resource : DestinationPoint
     protected override void Awake()
     {
         destinationType = DestinationType.resource;
-        base.Awake();
+        //base.Awake();
     }
 
     private void Start()

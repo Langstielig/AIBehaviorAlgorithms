@@ -13,6 +13,10 @@ public class Context : MonoBehaviour
 {
     public Storage storage;
     public GameObject home;
+
+    public List<Food> foods;
+    public List<Resource> resources;
+
     public float MinDistance = 5f;
     public Dictionary<DestinationType, List<Transform>> Destinations { get; private set; }
 
@@ -28,6 +32,15 @@ public class Context : MonoBehaviour
 
         RegisterDestination(DestinationType.rest, home.transform);
         RegisterDestination(DestinationType.storage, storage.transform);
+
+        for(int i = 0; i < foods.Count; i++)
+        {
+            RegisterDestination(DestinationType.food, foods[i].transform);
+        }
+        for (int i = 0; i < resources.Count; i++)
+        {
+            RegisterDestination(DestinationType.resource, resources[i].transform);
+        }
     }
 
     //private void Start()

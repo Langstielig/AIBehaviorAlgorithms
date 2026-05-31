@@ -3,10 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Eat", menuName = "UtilityAI/Actions/Eat")]
 public class Eat : Action
 {
-    public override HFSMAction CreateHFSMAction()
-    {
-        return new EatHFSMAction();
-    }
+    //public override HFSMAction CreateHFSMAction()
+    //{
+    //    return new EatHFSMAction();
+    //}
 
     public override void Execute(NPCController npc)
     {

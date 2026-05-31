@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HungerConsideration
   m_EditorClassIdentifier: 
   Name: Hunger
+  needType: 0
   responseCurve:
     serializedVersion: 2
     m_Curve:
@@ -26,19 +27,19 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.29910922
-      value: 0.5087521
-      inSlope: 1.4017816
-      outSlope: 1.4017816
+      time: 0.74970424
+      value: 0.50265026
+      inSlope: 1.0450493
+      outSlope: 1.0450493
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.47747537
-      value: 0.726968
-      inSlope: 1.0450493
-      outSlope: 1.0450493
+      time: 0.8495462
+      value: 0.85997653
+      inSlope: 2.5959685
+      outSlope: 2.5959685
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334

@@ -4,10 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Work", menuName = "UtilityAI/Actions/Work")]
 public class Work : Action
 {
-    public override HFSMAction CreateHFSMAction()
-    {
-        return new WorkHFSMAction();
-    }
+    //public override HFSMAction CreateHFSMAction()
+    //{
+    //    return new WorkHFSMAction();
+    //}
 
     public override void Execute(NPCController npc)
     {

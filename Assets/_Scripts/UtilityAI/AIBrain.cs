@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AIBrain : MonoBehaviour
 {
-    public bool finishedDeciding { get; set; }
+    private bool finishedDeciding;
     public bool finishedExecutingBestAction { get; set; }
 
     public Action bestAction { get; set; }
@@ -79,7 +79,7 @@ public class AIBrain : MonoBehaviour
             float[] expScores = new float[availableActions.Length];
             float expSum = 0f;
 
-            for(int i =0; i < availableActions.Length; i++)
+            for(int i = 0; i < availableActions.Length; i++)
             {
                 expScores[i] = Mathf.Exp((availableActions[i].score - score) / temperature);
                 expSum += expScores[i];
@@ -124,7 +124,7 @@ public class AIBrain : MonoBehaviour
     // Loop though all the considerations of the action
     // Score all the considerations 
     // Average the consideration scores (not just average) to overall action score
-    public float ScoreAction(Action action)
+    private float ScoreAction(Action action)
     {
         float score = 1f;
         for(int i = 0; i < action.considerations.Length; i++)
